@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_testimonial_results",
+  "info": {
+    "displayName": "Result",
+    "icon": "chartCircle",
+    "description": "Key result metric"
+  },
+  "options": {},
+  "attributes": {
+    "metric": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    }
+  }
+}

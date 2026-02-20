@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_homepage_why_chooses",
+  "info": {
+    "displayName": "Why Choose Us",
+    "icon": "check",
+    "description": "Reason to choose us"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    }
+  }
+}

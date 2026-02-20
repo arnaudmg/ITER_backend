@@ -1,0 +1,26 @@
+{
+  "collectionName": "components_shared_sub_page_cards",
+  "info": {
+    "displayName": "Sub Page Card",
+    "icon": "layout",
+    "description": "Card linking to a sub-page"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "icon": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": ["images"]
+    },
+    "link": {
+      "type": "string"
+    }
+  }
+}

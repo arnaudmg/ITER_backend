@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_homepage_value_props",
+  "info": {
+    "displayName": "Value Proposition",
+    "icon": "star",
+    "description": "Value proposition item"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "icon": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": ["images"]
+    }
+  }
+}

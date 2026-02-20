@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_homepage_statistics",
+  "info": {
+    "displayName": "Statistic",
+    "icon": "chartBubble",
+    "description": "Statistic counter"
+  },
+  "options": {},
+  "attributes": {
+    "value": {
+      "type": "string"
+    },
+    "label": {
+      "type": "string"
+    }
+  }
+}

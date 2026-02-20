@@ -1,0 +1,20 @@
+{
+  "collectionName": "components_global_ratings",
+  "info": {
+    "displayName": "Aggregate Rating",
+    "icon": "star",
+    "description": "Aggregate rating (e.g. Trustfolio)"
+  },
+  "options": {},
+  "attributes": {
+    "score": {
+      "type": "string"
+    },
+    "count": {
+      "type": "integer"
+    },
+    "platform": {
+      "type": "string"
+    }
+  }
+}

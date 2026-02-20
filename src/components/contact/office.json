@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_contact_offices",
+  "info": {
+    "displayName": "Office",
+    "icon": "pinMap",
+    "description": "Office location"
+  },
+  "options": {},
+  "attributes": {
+    "city": {
+      "type": "string"
+    },
+    "address": {
+      "type": "text"
+    },
+    "phone": {
+      "type": "string"
+    },
+    "email": {
+      "type": "string"
+    }
+  }
+}

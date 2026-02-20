@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_global_footers",
+  "info": {
+    "displayName": "Footer",
+    "icon": "apps",
+    "description": "Footer content"
+  },
+  "options": {},
+  "attributes": {
+    "description": {
+      "type": "text"
+    },
+    "copyright": {
+      "type": "string"
+    }
+  }
+}
