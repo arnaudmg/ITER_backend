@@ -1,0 +1,11 @@
+{
+  "collectionName": "components_blocks_ctas",
+  "info": { "displayName": "CTA", "icon": "cursor" },
+  "options": {},
+  "attributes": {
+    "label": { "type": "string" },
+    "href": { "type": "string" },
+    "style": { "type": "enumeration", "enum": ["primary", "secondary", "link"], "default": "primary" },
+    "newTab": { "type": "boolean", "default": false }
+  }
+}

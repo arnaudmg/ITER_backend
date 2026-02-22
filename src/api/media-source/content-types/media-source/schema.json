@@ -1,0 +1,35 @@
+{
+  "kind": "collectionType",
+  "collectionName": "media_sources",
+  "info": {
+    "singularName": "media-source",
+    "pluralName": "media-sources",
+    "displayName": "Media Source",
+    "description": "Provenance + dedup index for uploaded media"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "sha256": {
+      "type": "string",
+      "unique": true
+    },
+    "sourceUrl": {
+      "type": "string",
+      "unique": true
+    },
+    "normalizedFilename": {
+      "type": "string"
+    },
+    "file": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::upload.file"
+    },
+    "notes": {
+      "type": "text"
+    }
+  }
+}

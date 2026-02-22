@@ -1,0 +1,10 @@
+{
+  "collectionName": "components_blocks_logos",
+  "info": { "displayName": "Logo", "icon": "image" },
+  "options": {},
+  "attributes": {
+    "image": { "type": "media", "multiple": false, "required": false, "allowedTypes": ["images"] },
+    "alt": { "type": "string" },
+    "href": { "type": "string" }
+  }
+}

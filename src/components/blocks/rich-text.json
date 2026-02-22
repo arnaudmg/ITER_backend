@@ -1,0 +1,9 @@
+{
+  "collectionName": "components_blocks_rich_texts",
+  "info": { "displayName": "Rich Text", "icon": "align-left" },
+  "options": {},
+  "attributes": {
+    "html": { "type": "richtext" },
+    "source": { "type": "enumeration", "enum": ["wp_html", "manual"], "default": "wp_html" }
+  }
+}

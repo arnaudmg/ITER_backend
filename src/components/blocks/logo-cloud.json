@@ -1,0 +1,8 @@
+{
+  "collectionName": "components_blocks_logo_clouds",
+  "info": { "displayName": "Logo Cloud", "icon": "apps" },
+  "options": {},
+  "attributes": {
+    "logos": { "type": "component", "repeatable": true, "component": "blocks.logo" }
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "collectionName": "components_blocks_form_embeds",
+  "info": { "displayName": "Form Embed", "icon": "paper-plane" },
+  "options": {},
+  "attributes": {
+    "provider": { "type": "enumeration", "enum": ["gravityforms", "hubspot", "typeform", "other"], "default": "other" },
+    "embedCode": { "type": "text" },
+    "notes": { "type": "string" }
+  }
+}
