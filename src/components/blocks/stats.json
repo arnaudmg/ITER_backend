@@ -1,0 +1,8 @@
+{
+  "collectionName": "components_blocks_stats",
+  "info": { "displayName": "Stats", "icon": "chart-bar" },
+  "options": {},
+  "attributes": {
+    "items": { "type": "json" }
+  }
+}
