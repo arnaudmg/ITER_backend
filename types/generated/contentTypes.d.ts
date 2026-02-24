@@ -488,6 +488,59 @@ export interface ApiAboutPageAboutPage extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiAccompagnementLeveeDeFondPageAccompagnementLeveeDeFondPage
+  extends Struct.SingleTypeSchema {
+  collectionName: 'accompagnement_levee_de_fond_pages';
+  info: {
+    description: 'Page service Accompagnement lev\u00E9e de fonds';
+    displayName: 'Accompagnement lev\u00E9e de fonds';
+    pluralName: 'accompagnement-levee-de-fond-pages';
+    singularName: 'accompagnement-levee-de-fond-page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    content: Schema.Attribute.Blocks &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    faq: Schema.Attribute.Component<'shared.faq-item', true>;
+    heroSubtitle: Schema.Attribute.Text &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    heroTitle: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::accompagnement-levee-de-fond-page.accompagnement-levee-de-fond-page'
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    seo: Schema.Attribute.Component<'shared.seo', false>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiArticleArticle extends Struct.CollectionTypeSchema {
   collectionName: 'articles';
   info: {
@@ -713,6 +766,59 @@ export interface ApiClientLogoClientLogo extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiComptabiliteExternalisationPageComptabiliteExternalisationPage
+  extends Struct.SingleTypeSchema {
+  collectionName: 'comptabilite_externalisation_pages';
+  info: {
+    description: 'Page service Externaliser sa comptabilit\u00E9';
+    displayName: 'Externaliser sa comptabilit\u00E9';
+    pluralName: 'comptabilite-externalisation-pages';
+    singularName: 'comptabilite-externalisation-page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    content: Schema.Attribute.Blocks &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    faq: Schema.Attribute.Component<'shared.faq-item', true>;
+    heroSubtitle: Schema.Attribute.Text &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    heroTitle: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::comptabilite-externalisation-page.comptabilite-externalisation-page'
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    seo: Schema.Attribute.Component<'shared.seo', false>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiContactPageContactPage extends Struct.SingleTypeSchema {
   collectionName: 'contact_pages';
   info: {
@@ -751,6 +857,59 @@ export interface ApiContactPageContactPage extends Struct.SingleTypeSchema {
       'api::contact-page.contact-page'
     >;
     offices: Schema.Attribute.Component<'contact.office', true>;
+    publishedAt: Schema.Attribute.DateTime;
+    seo: Schema.Attribute.Component<'shared.seo', false>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiControleDeGestionExternalisePageControleDeGestionExternalisePage
+  extends Struct.SingleTypeSchema {
+  collectionName: 'controle_de_gestion_externalise_pages';
+  info: {
+    description: 'Page service Contr\u00F4le de gestion externalis\u00E9';
+    displayName: 'Contr\u00F4le de gestion';
+    pluralName: 'controle-de-gestion-externalise-pages';
+    singularName: 'controle-de-gestion-externalise-page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    content: Schema.Attribute.Blocks &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    faq: Schema.Attribute.Component<'shared.faq-item', true>;
+    heroSubtitle: Schema.Attribute.Text &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    heroTitle: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::controle-de-gestion-externalise-page.controle-de-gestion-externalise-page'
+    >;
     publishedAt: Schema.Attribute.DateTime;
     seo: Schema.Attribute.Component<'shared.seo', false>;
     updatedAt: Schema.Attribute.DateTime;
@@ -944,6 +1103,59 @@ export interface ApiDafTransitionPageDafTransitionPage
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::daf-transition-page.daf-transition-page'
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    seo: Schema.Attribute.Component<'shared.seo', false>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiGestionFinanciereExternaliseePageGestionFinanciereExternaliseePage
+  extends Struct.SingleTypeSchema {
+  collectionName: 'gestion_financiere_externalisee_pages';
+  info: {
+    description: 'Page service Gestion financi\u00E8re externalis\u00E9e';
+    displayName: 'Gestion financi\u00E8re externalis\u00E9e';
+    pluralName: 'gestion-financiere-externalisee-pages';
+    singularName: 'gestion-financiere-externalisee-page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    content: Schema.Attribute.Blocks &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    faq: Schema.Attribute.Component<'shared.faq-item', true>;
+    heroSubtitle: Schema.Attribute.Text &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    heroTitle: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::gestion-financiere-externalisee-page.gestion-financiere-externalisee-page'
     >;
     publishedAt: Schema.Attribute.DateTime;
     seo: Schema.Attribute.Component<'shared.seo', false>;
@@ -1331,6 +1543,59 @@ export interface ApiPagePage extends Struct.CollectionTypeSchema {
     seo: Schema.Attribute.Component<'shared.seo', false>;
     slug: Schema.Attribute.UID<'title'> & Schema.Attribute.Required;
     title: Schema.Attribute.String & Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiPrevisionnelTresoreriePagePrevisionnelTresoreriePage
+  extends Struct.SingleTypeSchema {
+  collectionName: 'previsionnel_tresorerie_pages';
+  info: {
+    description: 'Page service Pr\u00E9visionnel de tr\u00E9sorerie';
+    displayName: 'Pr\u00E9visionnel de tr\u00E9sorerie';
+    pluralName: 'previsionnel-tresorerie-pages';
+    singularName: 'previsionnel-tresorerie-page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    content: Schema.Attribute.Blocks &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    faq: Schema.Attribute.Component<'shared.faq-item', true>;
+    heroSubtitle: Schema.Attribute.Text &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    heroTitle: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::previsionnel-tresorerie-page.previsionnel-tresorerie-page'
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    seo: Schema.Attribute.Component<'shared.seo', false>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -2152,16 +2417,20 @@ declare module '@strapi/strapi' {
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
       'api::about-page.about-page': ApiAboutPageAboutPage;
+      'api::accompagnement-levee-de-fond-page.accompagnement-levee-de-fond-page': ApiAccompagnementLeveeDeFondPageAccompagnementLeveeDeFondPage;
       'api::article.article': ApiArticleArticle;
       'api::author.author': ApiAuthorAuthor;
       'api::blog-article.blog-article': ApiBlogArticleBlogArticle;
       'api::category.category': ApiCategoryCategory;
       'api::client-logo.client-logo': ApiClientLogoClientLogo;
+      'api::comptabilite-externalisation-page.comptabilite-externalisation-page': ApiComptabiliteExternalisationPageComptabiliteExternalisationPage;
       'api::contact-page.contact-page': ApiContactPageContactPage;
+      'api::controle-de-gestion-externalise-page.controle-de-gestion-externalise-page': ApiControleDeGestionExternalisePageControleDeGestionExternalisePage;
       'api::daf-externalise-page.daf-externalise-page': ApiDafExternalisePageDafExternalisePage;
       'api::daf-metier-page.daf-metier-page': ApiDafMetierPageDafMetierPage;
       'api::daf-temps-partage-page.daf-temps-partage-page': ApiDafTempsPartagePageDafTempsPartagePage;
       'api::daf-transition-page.daf-transition-page': ApiDafTransitionPageDafTransitionPage;
+      'api::gestion-financiere-externalisee-page.gestion-financiere-externalisee-page': ApiGestionFinanciereExternaliseePageGestionFinanciereExternaliseePage;
       'api::global.global': ApiGlobalGlobal;
       'api::glossary-term.glossary-term': ApiGlossaryTermGlossaryTerm;
       'api::homepage.homepage': ApiHomepageHomepage;
@@ -2170,6 +2439,7 @@ declare module '@strapi/strapi' {
       'api::legal-page.legal-page': ApiLegalPageLegalPage;
       'api::media-source.media-source': ApiMediaSourceMediaSource;
       'api::page.page': ApiPagePage;
+      'api::previsionnel-tresorerie-page.previsionnel-tresorerie-page': ApiPrevisionnelTresoreriePagePrevisionnelTresoreriePage;
       'api::privacy-page.privacy-page': ApiPrivacyPagePrivacyPage;
       'api::service-detail.service-detail': ApiServiceDetailServiceDetail;
       'api::services-page.services-page': ApiServicesPageServicesPage;
