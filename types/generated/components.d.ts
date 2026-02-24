@@ -1,5 +1,160 @@
 import type { Schema, Struct } from '@strapi/strapi';
 
+export interface BlocksCta extends Struct.ComponentSchema {
+  collectionName: 'components_blocks_ctas';
+  info: {
+    displayName: 'CTA';
+    icon: 'cursor';
+  };
+  attributes: {
+    href: Schema.Attribute.String;
+    label: Schema.Attribute.String;
+    newTab: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    style: Schema.Attribute.Enumeration<['primary', 'secondary', 'link']> &
+      Schema.Attribute.DefaultTo<'primary'>;
+  };
+}
+
+export interface BlocksFaq extends Struct.ComponentSchema {
+  collectionName: 'components_blocks_faqs';
+  info: {
+    displayName: 'FAQ';
+    icon: 'question';
+  };
+  attributes: {
+    items: Schema.Attribute.Component<'blocks.faq-item', true>;
+  };
+}
+
+export interface BlocksFaqItem extends Struct.ComponentSchema {
+  collectionName: 'components_blocks_faq_items';
+  info: {
+    displayName: 'FAQ Item';
+    icon: 'question';
+  };
+  attributes: {
+    answer: Schema.Attribute.RichText;
+    question: Schema.Attribute.String;
+  };
+}
+
+export interface BlocksFormEmbed extends Struct.ComponentSchema {
+  collectionName: 'components_blocks_form_embeds';
+  info: {
+    displayName: 'Form Embed';
+    icon: 'paper-plane';
+  };
+  attributes: {
+    embedCode: Schema.Attribute.Text;
+    notes: Schema.Attribute.String;
+    provider: Schema.Attribute.Enumeration<
+      ['gravityforms', 'hubspot', 'typeform', 'other']
+    > &
+      Schema.Attribute.DefaultTo<'other'>;
+  };
+}
+
+export interface BlocksHero extends Struct.ComponentSchema {
+  collectionName: 'components_blocks_heroes';
+  info: {
+    displayName: 'Hero';
+    icon: 'star';
+  };
+  attributes: {
+    backgroundImage: Schema.Attribute.Media<'images'>;
+    heading: Schema.Attribute.String;
+    primaryCta: Schema.Attribute.Component<'blocks.cta', false>;
+    secondaryCta: Schema.Attribute.Component<'blocks.cta', false>;
+    subheading: Schema.Attribute.Text;
+  };
+}
+
+export interface BlocksImage extends Struct.ComponentSchema {
+  collectionName: 'components_blocks_images';
+  info: {
+    displayName: 'Image';
+    icon: 'image';
+  };
+  attributes: {
+    alt: Schema.Attribute.String;
+    caption: Schema.Attribute.String;
+    image: Schema.Attribute.Media<'images'>;
+  };
+}
+
+export interface BlocksLogo extends Struct.ComponentSchema {
+  collectionName: 'components_blocks_logos';
+  info: {
+    displayName: 'Logo';
+    icon: 'image';
+  };
+  attributes: {
+    alt: Schema.Attribute.String;
+    href: Schema.Attribute.String;
+    image: Schema.Attribute.Media<'images'>;
+  };
+}
+
+export interface BlocksLogoCloud extends Struct.ComponentSchema {
+  collectionName: 'components_blocks_logo_clouds';
+  info: {
+    displayName: 'Logo Cloud';
+    icon: 'apps';
+  };
+  attributes: {
+    logos: Schema.Attribute.Component<'blocks.logo', true>;
+  };
+}
+
+export interface BlocksPricingTable extends Struct.ComponentSchema {
+  collectionName: 'components_blocks_pricing_tables';
+  info: {
+    displayName: 'Pricing Table';
+    icon: 'dollar-sign';
+  };
+  attributes: {
+    plans: Schema.Attribute.JSON;
+  };
+}
+
+export interface BlocksRichText extends Struct.ComponentSchema {
+  collectionName: 'components_blocks_rich_texts';
+  info: {
+    displayName: 'Rich Text';
+    icon: 'align-left';
+  };
+  attributes: {
+    html: Schema.Attribute.RichText;
+    source: Schema.Attribute.Enumeration<['wp_html', 'manual']> &
+      Schema.Attribute.DefaultTo<'wp_html'>;
+  };
+}
+
+export interface BlocksStats extends Struct.ComponentSchema {
+  collectionName: 'components_blocks_stats';
+  info: {
+    displayName: 'Stats';
+    icon: 'chart-bar';
+  };
+  attributes: {
+    items: Schema.Attribute.JSON;
+  };
+}
+
+export interface BlocksTestimonial extends Struct.ComponentSchema {
+  collectionName: 'components_blocks_testimonials';
+  info: {
+    displayName: 'Testimonial';
+    icon: 'quote-right';
+  };
+  attributes: {
+    authorImage: Schema.Attribute.Media<'images'>;
+    authorName: Schema.Attribute.String;
+    authorTitle: Schema.Attribute.String;
+    quote: Schema.Attribute.Text;
+  };
+}
+
 export interface ContactOffice extends Struct.ComponentSchema {
   collectionName: 'components_contact_offices';
   info: {
@@ -192,6 +347,18 @@ export interface TestimonialResult extends Struct.ComponentSchema {
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
+      'blocks.cta': BlocksCta;
+      'blocks.faq': BlocksFaq;
+      'blocks.faq-item': BlocksFaqItem;
+      'blocks.form-embed': BlocksFormEmbed;
+      'blocks.hero': BlocksHero;
+      'blocks.image': BlocksImage;
+      'blocks.logo': BlocksLogo;
+      'blocks.logo-cloud': BlocksLogoCloud;
+      'blocks.pricing-table': BlocksPricingTable;
+      'blocks.rich-text': BlocksRichText;
+      'blocks.stats': BlocksStats;
+      'blocks.testimonial': BlocksTestimonial;
       'contact.office': ContactOffice;
       'global.footer': GlobalFooter;
       'global.nav-item': GlobalNavItem;

@@ -488,6 +488,95 @@ export interface ApiAboutPageAboutPage extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiArticleArticle extends Struct.CollectionTypeSchema {
+  collectionName: 'articles';
+  info: {
+    description: 'Blog posts / articles migrated from WordPress';
+    displayName: 'Article';
+    pluralName: 'articles';
+    singularName: 'article';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    author: Schema.Attribute.Relation<'manyToOne', 'api::author.author'>;
+    blocks: Schema.Attribute.DynamicZone<
+      [
+        'blocks.hero',
+        'blocks.rich-text',
+        'blocks.image',
+        'blocks.cta',
+        'blocks.faq',
+        'blocks.testimonial',
+        'blocks.pricing-table',
+        'blocks.logo-cloud',
+        'blocks.stats',
+        'blocks.form-embed',
+      ]
+    >;
+    body: Schema.Attribute.RichText;
+    category: Schema.Attribute.Relation<'manyToOne', 'api::category.category'>;
+    coverImage: Schema.Attribute.Media<'images'>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    excerpt: Schema.Attribute.Text;
+    legacyUrl: Schema.Attribute.String & Schema.Attribute.Unique;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::article.article'
+    > &
+      Schema.Attribute.Private;
+    migrationMeta: Schema.Attribute.JSON;
+    publishedAt: Schema.Attribute.DateTime;
+    seo: Schema.Attribute.Component<'shared.seo', false>;
+    slug: Schema.Attribute.UID<'title'> & Schema.Attribute.Required;
+    tags: Schema.Attribute.Relation<'manyToMany', 'api::tag.tag'>;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiAuthorAuthor extends Struct.CollectionTypeSchema {
+  collectionName: 'authors';
+  info: {
+    description: 'WordPress authors';
+    displayName: 'Author';
+    pluralName: 'authors';
+    singularName: 'author';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    articles: Schema.Attribute.Relation<'oneToMany', 'api::article.article'>;
+    avatar: Schema.Attribute.Media<'images'>;
+    bio: Schema.Attribute.RichText;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    legacyUrl: Schema.Attribute.String & Schema.Attribute.Unique;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::author.author'
+    > &
+      Schema.Attribute.Private;
+    migrationMeta: Schema.Attribute.JSON;
+    name: Schema.Attribute.String & Schema.Attribute.Required;
+    publishedAt: Schema.Attribute.DateTime;
+    seo: Schema.Attribute.Component<'shared.seo', false>;
+    slug: Schema.Attribute.UID<'name'> & Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiBlogArticleBlogArticle extends Struct.CollectionTypeSchema {
   collectionName: 'blog_articles';
   info: {
@@ -545,6 +634,41 @@ export interface ApiBlogArticleBlogArticle extends Struct.CollectionTypeSchema {
           localized: true;
         };
       }>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiCategoryCategory extends Struct.CollectionTypeSchema {
+  collectionName: 'categories';
+  info: {
+    description: 'WordPress categories';
+    displayName: 'Category';
+    pluralName: 'categories';
+    singularName: 'category';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    articles: Schema.Attribute.Relation<'oneToMany', 'api::article.article'>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.Text;
+    legacyUrl: Schema.Attribute.String & Schema.Attribute.Unique;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::category.category'
+    > &
+      Schema.Attribute.Private;
+    migrationMeta: Schema.Attribute.JSON;
+    name: Schema.Attribute.String & Schema.Attribute.Required;
+    publishedAt: Schema.Attribute.DateTime;
+    seo: Schema.Attribute.Component<'shared.seo', false>;
+    slug: Schema.Attribute.UID<'name'> & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1134,6 +1258,85 @@ export interface ApiLegalPageLegalPage extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiMediaSourceMediaSource extends Struct.CollectionTypeSchema {
+  collectionName: 'media_sources';
+  info: {
+    description: 'Provenance + dedup index for uploaded media';
+    displayName: 'Media Source';
+    pluralName: 'media-sources';
+    singularName: 'media-source';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    file: Schema.Attribute.Relation<'oneToOne', 'plugin::upload.file'>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::media-source.media-source'
+    > &
+      Schema.Attribute.Private;
+    normalizedFilename: Schema.Attribute.String;
+    notes: Schema.Attribute.Text;
+    publishedAt: Schema.Attribute.DateTime;
+    sha256: Schema.Attribute.String & Schema.Attribute.Unique;
+    sourceUrl: Schema.Attribute.String & Schema.Attribute.Unique;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiPagePage extends Struct.CollectionTypeSchema {
+  collectionName: 'pages';
+  info: {
+    description: 'Generic pages migrated from WordPress';
+    displayName: 'Page';
+    pluralName: 'pages';
+    singularName: 'page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    blocks: Schema.Attribute.DynamicZone<
+      [
+        'blocks.hero',
+        'blocks.rich-text',
+        'blocks.image',
+        'blocks.cta',
+        'blocks.faq',
+        'blocks.testimonial',
+        'blocks.pricing-table',
+        'blocks.logo-cloud',
+        'blocks.stats',
+        'blocks.form-embed',
+      ]
+    >;
+    body: Schema.Attribute.RichText;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    featuredImage: Schema.Attribute.Media<'images'>;
+    legacyUrl: Schema.Attribute.String & Schema.Attribute.Unique;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::page.page'> &
+      Schema.Attribute.Private;
+    migrationMeta: Schema.Attribute.JSON;
+    publishedAt: Schema.Attribute.DateTime;
+    seo: Schema.Attribute.Component<'shared.seo', false>;
+    slug: Schema.Attribute.UID<'title'> & Schema.Attribute.Required;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiPrivacyPagePrivacyPage extends Struct.SingleTypeSchema {
   collectionName: 'privacy_pages';
   info: {
@@ -1272,6 +1475,37 @@ export interface ApiServicesPageServicesPage extends Struct.SingleTypeSchema {
       'oneToMany',
       'api::service-detail.service-detail'
     >;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiTagTag extends Struct.CollectionTypeSchema {
+  collectionName: 'tags';
+  info: {
+    description: 'WordPress tags';
+    displayName: 'Tag';
+    pluralName: 'tags';
+    singularName: 'tag';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    articles: Schema.Attribute.Relation<'manyToMany', 'api::article.article'>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    legacyUrl: Schema.Attribute.String & Schema.Attribute.Unique;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::tag.tag'> &
+      Schema.Attribute.Private;
+    migrationMeta: Schema.Attribute.JSON;
+    name: Schema.Attribute.String & Schema.Attribute.Required;
+    publishedAt: Schema.Attribute.DateTime;
+    seo: Schema.Attribute.Component<'shared.seo', false>;
+    slug: Schema.Attribute.UID<'name'> & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1918,7 +2152,10 @@ declare module '@strapi/strapi' {
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
       'api::about-page.about-page': ApiAboutPageAboutPage;
+      'api::article.article': ApiArticleArticle;
+      'api::author.author': ApiAuthorAuthor;
       'api::blog-article.blog-article': ApiBlogArticleBlogArticle;
+      'api::category.category': ApiCategoryCategory;
       'api::client-logo.client-logo': ApiClientLogoClientLogo;
       'api::contact-page.contact-page': ApiContactPageContactPage;
       'api::daf-externalise-page.daf-externalise-page': ApiDafExternalisePageDafExternalisePage;
@@ -1931,9 +2168,12 @@ declare module '@strapi/strapi' {
       'api::job-metier.job-metier': ApiJobMetierJobMetier;
       'api::job-offer.job-offer': ApiJobOfferJobOffer;
       'api::legal-page.legal-page': ApiLegalPageLegalPage;
+      'api::media-source.media-source': ApiMediaSourceMediaSource;
+      'api::page.page': ApiPagePage;
       'api::privacy-page.privacy-page': ApiPrivacyPagePrivacyPage;
       'api::service-detail.service-detail': ApiServiceDetailServiceDetail;
       'api::services-page.services-page': ApiServicesPageServicesPage;
+      'api::tag.tag': ApiTagTag;
       'api::team-member.team-member': ApiTeamMemberTeamMember;
       'api::testimonial.testimonial': ApiTestimonialTestimonial;
       'plugin::content-releases.release': PluginContentReleasesRelease;
