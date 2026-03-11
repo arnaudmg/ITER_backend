@@ -1,0 +1,64 @@
+{
+  "kind": "singleType",
+  "collectionName": "drh_externalise_pages",
+  "info": {
+    "singularName": "drh-externalise-page",
+    "pluralName": "drh-externalise-pages",
+    "displayName": "DRH Externalise Page",
+    "description": "Page hub DRH externalisé (grille des 45 services)"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "heroTitle": {
+      "type": "string",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "heroSubtitle": {
+      "type": "text",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "content": {
+      "type": "blocks",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "subPages": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.sub-page-card"
+    },
+    "serviceCategories": {
+      "type": "component",
+      "repeatable": true,
+      "component": "drh.service-category"
+    },
+    "faq": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.faq-item"
+    },
+    "seo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.seo"
+    }
+  }
+}

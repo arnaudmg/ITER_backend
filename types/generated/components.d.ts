@@ -170,6 +170,37 @@ export interface ContactOffice extends Struct.ComponentSchema {
   };
 }
 
+export interface DrhServiceCategory extends Struct.ComponentSchema {
+  collectionName: 'components_drh_service_categories';
+  info: {
+    description: 'Category of HR services (e.g. Audit RH, Recrutement) with a list of service rows';
+    displayName: 'DRH Service Category';
+    icon: 'folder';
+  };
+  attributes: {
+    categoryName: Schema.Attribute.String & Schema.Attribute.Required;
+    services: Schema.Attribute.Component<'drh.service-row', true>;
+  };
+}
+
+export interface DrhServiceRow extends Struct.ComponentSchema {
+  collectionName: 'components_drh_service_rows';
+  info: {
+    description: 'One service line in the DRH services grid (title, description, tier flags, add-on)';
+    displayName: 'DRH Service Row';
+    icon: 'file';
+  };
+  attributes: {
+    description: Schema.Attribute.Text;
+    isAddOn: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    tier1: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    tier2: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    tier3: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    tier4: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
 export interface GlobalFooter extends Struct.ComponentSchema {
   collectionName: 'components_global_footers';
   info: {
@@ -360,6 +391,8 @@ declare module '@strapi/strapi' {
       'blocks.stats': BlocksStats;
       'blocks.testimonial': BlocksTestimonial;
       'contact.office': ContactOffice;
+      'drh.service-category': DrhServiceCategory;
+      'drh.service-row': DrhServiceRow;
       'global.footer': GlobalFooter;
       'global.nav-item': GlobalNavItem;
       'global.rating': GlobalRating;

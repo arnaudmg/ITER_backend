@@ -1,0 +1,38 @@
+{
+  "collectionName": "components_drh_service_rows",
+  "info": {
+    "displayName": "DRH Service Row",
+    "icon": "file",
+    "description": "One service line in the DRH services grid (title, description, tier flags, add-on)"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text"
+    },
+    "tier1": {
+      "type": "boolean",
+      "default": false
+    },
+    "tier2": {
+      "type": "boolean",
+      "default": false
+    },
+    "tier3": {
+      "type": "boolean",
+      "default": false
+    },
+    "tier4": {
+      "type": "boolean",
+      "default": false
+    },
+    "isAddOn": {
+      "type": "boolean",
+      "default": false
+    }
+  }
+}

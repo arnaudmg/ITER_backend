@@ -1112,6 +1112,108 @@ export interface ApiDafTransitionPageDafTransitionPage
   };
 }
 
+export interface ApiDrhExternalisePageDrhExternalisePage
+  extends Struct.SingleTypeSchema {
+  collectionName: 'drh_externalise_pages';
+  info: {
+    description: 'Page hub DRH externalis\u00E9 (grille des 45 services)';
+    displayName: 'DRH Externalise Page';
+    pluralName: 'drh-externalise-pages';
+    singularName: 'drh-externalise-page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    content: Schema.Attribute.Blocks &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    faq: Schema.Attribute.Component<'shared.faq-item', true>;
+    heroSubtitle: Schema.Attribute.Text &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    heroTitle: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::drh-externalise-page.drh-externalise-page'
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    seo: Schema.Attribute.Component<'shared.seo', false>;
+    serviceCategories: Schema.Attribute.Component<'drh.service-category', true>;
+    subPages: Schema.Attribute.Component<'shared.sub-page-card', true>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiDrhTempsPartagePageDrhTempsPartagePage
+  extends Struct.SingleTypeSchema {
+  collectionName: 'drh_temps_partage_pages';
+  info: {
+    description: 'Page DRH \u00E0 temps partag\u00E9';
+    displayName: 'DRH Temps Partage Page';
+    pluralName: 'drh-temps-partage-pages';
+    singularName: 'drh-temps-partage-page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    content: Schema.Attribute.Blocks &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    faq: Schema.Attribute.Component<'shared.faq-item', true>;
+    heroTitle: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::drh-temps-partage-page.drh-temps-partage-page'
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    seo: Schema.Attribute.Component<'shared.seo', false>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiGestionFinanciereExternaliseePageGestionFinanciereExternaliseePage
   extends Struct.SingleTypeSchema {
   collectionName: 'gestion_financiere_externalisee_pages';
@@ -2430,6 +2532,8 @@ declare module '@strapi/strapi' {
       'api::daf-metier-page.daf-metier-page': ApiDafMetierPageDafMetierPage;
       'api::daf-temps-partage-page.daf-temps-partage-page': ApiDafTempsPartagePageDafTempsPartagePage;
       'api::daf-transition-page.daf-transition-page': ApiDafTransitionPageDafTransitionPage;
+      'api::drh-externalise-page.drh-externalise-page': ApiDrhExternalisePageDrhExternalisePage;
+      'api::drh-temps-partage-page.drh-temps-partage-page': ApiDrhTempsPartagePageDrhTempsPartagePage;
       'api::gestion-financiere-externalisee-page.gestion-financiere-externalisee-page': ApiGestionFinanciereExternaliseePageGestionFinanciereExternaliseePage;
       'api::global.global': ApiGlobalGlobal;
       'api::glossary-term.glossary-term': ApiGlossaryTermGlossaryTerm;
