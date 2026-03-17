@@ -33,7 +33,12 @@
     "navigation": {
       "type": "component",
       "repeatable": true,
-      "component": "global.nav-item"
+      "component": "global.nav-item",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     },
     "footer": {
       "type": "component",
