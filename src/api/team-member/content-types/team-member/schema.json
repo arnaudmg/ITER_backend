@@ -49,6 +49,10 @@
     "order": {
       "type": "integer",
       "default": 0
+    },
+    "showInHero": {
+      "type": "boolean",
+      "default": false
     }
   }
 }
